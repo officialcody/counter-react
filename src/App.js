@@ -2,11 +2,11 @@ import { useState, useRef } from "react";
 
 const App = () => {
     const [counter, setCounter] = useState(0);
-    const [fieldValue, setFieldValue] = useState(0);
+    const [fieldValue, setFieldValue] = useState(1);
     const inputRef = useRef(fieldValue);
 
     let multiplier = inputRef.current.value === '' || inputRef.current.value === '0' ? 1 : fieldValue;
-    
+
     const incrementCounter = () => {
         setCounter(counter + (1 * multiplier));
     }
@@ -21,7 +21,7 @@ const App = () => {
             ref={inputRef}
             type="number"
             value={fieldValue}
-            placeholder="Pick a multiplier for increment and decrement"
+            placeholder="Pick a multiplier for increment and decrement (default value => 1)"
             onChange={e => setFieldValue(e.target.value)}
         />
         <button onClick={incrementCounter}>
